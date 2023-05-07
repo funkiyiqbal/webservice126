@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/home2', function () {
+    return view('index');
+});
+
+
+//crud
+Route::get('/blog', 'BlogController@index');
+Route::get('customer', 'CustomerController@index');
