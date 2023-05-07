@@ -23,5 +23,4 @@ Route::get('/home2', function () {
 
 
 //crud
-Route::get('/blog', 'BlogController@index');
-Route::get('customer', 'CustomerController@index');
+Route::get('blog', 'BlogController@index');
