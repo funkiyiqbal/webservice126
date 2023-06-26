@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PerbaikanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('tamplate.welcome');
 });
 
 Route::get('/home2', function () {
@@ -23,4 +24,14 @@ Route::get('/home2', function () {
 
 
 //crud
-Route::get('blog', 'BlogController@index');
+// Route::get('blog', 'BlogController@index');
+
+//uts
+Route::get('/pertanyaan', [PerbaikanController::class, 'index'])->name('pertanyaan.index');
+Route::get('/pertanyaan/add', [PerbaikanController::class, 'add'])->name('pertanyaan.add');
+Route::post('/pertanyaan/simpan', [PerbaikanController::class, 'simpan'])->name('pertanyaan.simpan');
+Route::get('/pertanyaan/{id}/edit', [PerbaikanController::class, 'edit'])->name('pertanyaan.edit');
+
+Route::put('/pertanyaan/{id}/update', [PerbaikanController::class, 'update'])->name('pertanyaan.update');
+
+Route::get('/pertanyaan/{id}/delete', [PerbaikanController::class, 'delete'])->name('pertanyaan.delete');
